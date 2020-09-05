@@ -16,14 +16,6 @@ const countModifier = (count = 0, action) => {
 
 const countStore = createStore(countModifier);
 
-countStore.dispatch({ type: "ADD" });
-countStore.dispatch({ type: "ADD" });
-countStore.dispatch({ type: "ADD" });
-countStore.dispatch({ type: "ADD" });
-countStore.dispatch({ type: "ADD" });
-
-countStore.dispatch({ type: "MINUS" });
-
 console.log(countStore);
 console.log(countStore.getState());
 
