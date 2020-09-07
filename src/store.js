@@ -17,13 +17,14 @@ const deleteToDo = (id) => {
   };
 };
 
-// ****** LOCAL STORAGE **********
+/* ****** LOCAL STORAGE **********
 function addToLocalStorage(id, value) {
   const toDo = { id, value };
   let items = getLocalStorage();
   items.push(toDo);
   localStorage.setItem("list", JSON.stringify(items));
 }
+
 function removeFromLocalStorage(id) {
   let items = getLocalStorage();
   items = items.filter(function (item) {
@@ -33,22 +34,23 @@ function removeFromLocalStorage(id) {
   });
   localStorage.setItem("list", JSON.stringify(items));
 }
-// function editLocalStorage(id, value) {
-//   let items = getLocalStorage();
-//   items = items.map(function (item) {
-//     if (item.id === id) {
-//       item.value = value;
-//     }
-//     return item;
-//   });
-//   localStorage.setItem("list", JSON.stringify(items));
-// }
+
+function editLocalStorage(id, value) {
+  let items = getLocalStorage();
+  items = items.map(function (item) {
+    if (item.id === id) {
+      item.value = value;
+    }
+    return item;
+  });
+  localStorage.setItem("list", JSON.stringify(items));
+}
 
 function getLocalStorage() {
   return localStorage.getItem("list")
     ? JSON.parse(localStorage.getItem("list"))
     : [];
-}
+} */
 
 const reducer = (state = [], action) => {
   switch (action.type) {
@@ -56,11 +58,11 @@ const reducer = (state = [], action) => {
       // add to local storage
       const id = Date.now();
       const value = action.text;
-      addToLocalStorage(id, value);
+      // addToLocalStorage(id, value);
       return [{ text: value, id }, ...state];
     case DELETE:
       // remove from local storage
-      removeFromLocalStorage(action.id);
+      // removeFromLocalStorage(action.id);
       return state.filter((toDo) => toDo.id !== action.id);
     default:
       return state;

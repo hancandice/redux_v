@@ -17,7 +17,7 @@ function Home({ toDos, addToDo }) {
     setText("");
   }
 
-  setupItems();
+  // setupItems();
 
   return (
     <>
@@ -45,13 +45,13 @@ function mapDispatchToProps(dispatch) {
   };
 }
 
-function getLocalStorage() {
-  return localStorage.getItem("list")
-    ? JSON.parse(localStorage.getItem("list"))
-    : [];
-}
+// function getLocalStorage() {
+//   return localStorage.getItem("list")
+//     ? JSON.parse(localStorage.getItem("list"))
+//     : [];
+// }
 
-function setupItems() {
+/* function setupItems() {
   let items = getLocalStorage();
   if (items.length > 0) {
     Home(items);
@@ -59,7 +59,7 @@ function setupItems() {
     //   ToDo(item.id, item.value);
     // });
   }
-}
+} */
 
 export default connect(mapStateToProps, mapDispatchToProps)(Home);
 
